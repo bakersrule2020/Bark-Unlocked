@@ -101,26 +101,12 @@ namespace Bark
             }
         }
 
-        [ModdedGamemodeJoin]
-        void RoomJoined(string gamemode)
-        {
-            Logging.LogDebug("RoomJoined");
-            inRoom = true;
-            Setup();
-        }
-
-        [ModdedGamemodeLeave]
-        void RoomLeft(string gamemode)
-        {
-            Logging.LogDebug("RoomLeft");
-            inRoom = false;
-            Cleanup();
-        }
-
         void OnGameInitialized(object sender, EventArgs e)
         {
             Logging.LogDebug("OnGameInitialized");
             initialized = true;
+            inRoom = true;
+            Setup();
         }
     }
 }
